@@ -106,6 +106,7 @@ const Router = () => {
     }
   }
 
+  // Public routes
   if (route.startsWith('#/products/')) {
     const id = parseInt(route.replace('#/products/', ''), 10);
     if (!isNaN(id)) {
@@ -132,15 +133,32 @@ const Router = () => {
 }
 
 function App() {
+  const [currentRoute, setCurrentRoute] = useState(window.location.hash);
+  
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentRoute(window.location.hash);
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
+  // Check if current route is an admin route
+  const isAdminRoute = currentRoute.startsWith('#/admin');
+  
   return (
     <AuthProvider>
       <CartProvider>
         <div className="bg-brand-cream min-h-screen">
-          {!window.location.hash.startsWith('#/admin') && <Header />}
+          {/* Only show header on non-admin pages */}
+          {!isAdminRoute && <Header />}
           <main>
             <Router />
           </main>
-          {!window.location.hash.startsWith('#/admin') && <FloatingCartIcon />}
+          {/* Only show floating cart on non-admin pages */}
+          {!isAdminRoute && <FloatingCartIcon />}
         </div>
       </CartProvider>
     </AuthProvider>
