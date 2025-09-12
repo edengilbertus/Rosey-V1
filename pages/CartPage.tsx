@@ -53,7 +53,7 @@ export const CartPage = () => {
                     <div className="flex flex-col sm:flex-row items-center justify-between">
                       <div className="flex items-center mb-4 sm:mb-0">
                         <span className="font-sans text-lg text-brand-charcoal font-medium">
-                          ${(item.product.price * item.quantity).toFixed(2)}
+                          UGX {(item.product.price * item.quantity).toLocaleString()}
                         </span>
                         <span className="mx-4 text-gray-400">|</span>
                         <span className="font-sans text-gray-600">
@@ -61,7 +61,7 @@ export const CartPage = () => {
                         </span>
                       </div>
                       <span className="font-sans text-lg text-brand-charcoal">
-                        ${item.product.price.toFixed(2)} each
+                        UGX {item.product.price.toLocaleString()} each
                       </span>
                     </div>
                   </div>
@@ -78,7 +78,7 @@ export const CartPage = () => {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
                   <span className="font-sans text-gray-600">Subtotal</span>
-                  <span className="font-sans text-brand-charcoal">${calculateTotal().toFixed(2)}</span>
+                  <span className="font-sans text-brand-charcoal">UGX {calculateTotal().toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="font-sans text-gray-600">Shipping</span>
@@ -86,12 +86,12 @@ export const CartPage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="font-sans text-gray-600">Tax</span>
-                  <span className="font-sans text-brand-charcoal">$0.00</span>
+                  <span className="font-sans text-brand-charcoal">UGX 0</span>
                 </div>
                 <div className="border-t border-gray-300 pt-4">
                   <div className="flex justify-between">
                     <span className="font-serif text-xl text-brand-charcoal">Total</span>
-                    <span className="font-serif text-xl text-brand-charcoal">${calculateTotal().toFixed(2)}</span>
+                    <span className="font-serif text-xl text-brand-charcoal">UGX {calculateTotal().toLocaleString()}</span>
                   </div>
                 </div>
               </div>

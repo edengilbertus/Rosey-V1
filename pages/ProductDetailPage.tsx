@@ -54,7 +54,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ productId 
         {/* Product Info */}
         <div className="font-serif text-brand-charcoal pt-4">
           <h1 className="text-5xl lg:text-6xl mb-4">{product.name}</h1>
-          <p className="text-3xl text-gray-600 mb-8">${product.price.toFixed(2)}</p>
+          <p className="text-3xl text-gray-600 mb-8">UGX {product.price.toLocaleString()}</p>
           <div className="font-sans text-gray-600 text-lg leading-relaxed space-y-4">
             <p>{product.description}</p>
           </div>

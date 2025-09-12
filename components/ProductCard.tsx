@@ -22,7 +22,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <img src={product.imageUrls[0]} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
       </div>
       <h3 className="text-lg">{product.name}</h3>
-      <p className="text-md text-gray-500">${product.price.toFixed(2)}</p>
+      <p className="text-md text-gray-500">UGX {product.price.toLocaleString()}</p>
       <button 
         onClick={handleAddToCart}
         className="mt-2 bg-brand-tan text-white px-4 py-1 rounded-md text-sm font-sans opacity-0 group-hover:opacity-100 transition-opacity duration-300"
