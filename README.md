@@ -8,7 +8,7 @@ A modern e-commerce website for ROSEY GEMS jewelry store built with React, TypeS
 - Product catalog with search functionality
 - Shopping cart with add/remove items
 - Checkout process with customer information
-- Admin panel for managing products and orders
+- Separate admin panel application for managing products and orders
 - WhatsApp integration for customer communication
 - Google Maps integration for location
 
@@ -28,11 +28,14 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## Admin Panel
 
-Access the admin panel at `/admin/login`
+The admin panel is now a separate application located in the `admin-panel` directory.
 
-Demo credentials:
-- Email: admin@roseygems.com
-- Password: admin123
+To run the admin panel:
+1. Navigate to the admin-panel directory: `cd admin-panel`
+2. Install dependencies: `npm install`
+3. Create a `.env.local` file with your Supabase credentials
+4. Run the development server: `npm run dev`
+5. Access the admin panel at http://localhost:3001
 
 ## Available Scripts
 
