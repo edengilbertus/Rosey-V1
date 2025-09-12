@@ -121,13 +121,6 @@ export const ContactPage = () => {
                 </div>
                 
                 <div>
-                  <h3 className="font-serif text-2xl text-brand-charcoal mb-3">Email</h3>
-                  <p className="font-sans text-lg">
-                    <a href="mailto:edengilbertus@proton.me" className="text-brand-charcoal underline">edengilbertus@proton.me</a>
-                  </p>
-                </div>
-                
-                <div>
                   <h3 className="font-serif text-2xl text-brand-charcoal mb-3">Location</h3>
                   <p className="font-sans text-lg">
                     Maricah Centrum, Wandegeya
