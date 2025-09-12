@@ -48,6 +48,10 @@ export const CheckoutPage = () => {
 
     try {
       // Save order to Supabase
+      if (!supabase) {
+        throw new Error('Supabase is not configured');
+      }
+      
       const { data, error } = await supabase
         .from('orders')
         .insert([order]);

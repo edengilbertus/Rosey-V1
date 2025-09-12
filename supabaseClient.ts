@@ -1,6 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-const SUPABASE_URL = 'https://ofhppaatiapifxexenok.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9maHBwYWF0aWFwaWZ4ZXhlbm9rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc2OTYzODEsImV4cCI6MjA3MzI3MjM4MX0.Pn5TjsVp4zhNP_6jv6GZ6qA9xfxmPsHwZeETj3tRSYM'
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+let supabase: ReturnType<typeof createClient> | null = null;
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.warn('Supabase credentials not found in environment variables')
+} else {
+  supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+}
+
+export { supabase }
