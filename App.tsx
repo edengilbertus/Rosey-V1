@@ -8,6 +8,13 @@ import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { CartProvider, useCart } from './contexts/CartContext';
 import { CartIcon } from './components/icons/CartIcon';
+// Admin components
+import { AuthProvider } from './hooks/useAuth';
+import { AdminLayout } from './components/Admin/AdminLayout';
+import { LoginPage } from './pages/Admin/LoginPage';
+import { AdminDashboard } from './pages/Admin/AdminDashboard';
+import { ProductsPage } from './pages/Admin/ProductsPage';
+import { OrdersPage } from './pages/Admin/OrdersPage';
 
 const NotFoundPage = () => (
   <div className="text-center py-40">
@@ -68,6 +75,37 @@ const Router = () => {
     };
   }, []);
 
+  // Admin routes
+  if (route.startsWith('#/admin')) {
+    const adminRoute = route.replace('#/admin', '');
+    
+    switch (adminRoute) {
+      case '':
+      case '/':
+        return (
+          <AdminLayout>
+            <AdminDashboard />
+          </AdminLayout>
+        );
+      case '/products':
+        return (
+          <AdminLayout>
+            <ProductsPage />
+          </AdminLayout>
+        );
+      case '/orders':
+        return (
+          <AdminLayout>
+            <OrdersPage />
+          </AdminLayout>
+        );
+      case '/login':
+        return <LoginPage />;
+      default:
+        return <NotFoundPage />;
+    }
+  }
+
   if (route.startsWith('#/products/')) {
     const id = parseInt(route.replace('#/products/', ''), 10);
     if (!isNaN(id)) {
@@ -95,15 +133,17 @@ const Router = () => {
 
 function App() {
   return (
-    <CartProvider>
-      <div className="bg-brand-cream min-h-screen">
-        <Header />
-        <main>
-          <Router />
-        </main>
-        <FloatingCartIcon />
-      </div>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <div className="bg-brand-cream min-h-screen">
+          {!window.location.hash.startsWith('#/admin') && <Header />}
+          <main>
+            <Router />
+          </main>
+          {!window.location.hash.startsWith('#/admin') && <FloatingCartIcon />}
+        </div>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 
