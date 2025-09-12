@@ -6,6 +6,10 @@ import { ProductDetailPage } from './pages/ProductDetailPage';
 import { ContactPage } from './pages/ContactPage';
 import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
+import { AdminDashboardPage } from './admin/AdminDashboardPage';
+import { AdminProductsPage } from './admin/AdminProductsPage';
+import { AdminOrdersPage } from './admin/AdminOrdersPage';
+import { AdminLoginPage } from './admin/AdminLoginPage';
 import { CartProvider, useCart } from './contexts/CartContext';
 import { CartIcon } from './components/icons/CartIcon';
 
@@ -85,6 +89,14 @@ const Router = () => {
       return <CartPage />;
     case '#/checkout':
       return <CheckoutPage />;
+    case '#/admin':
+      return <AdminDashboardPage />;
+    case '#/admin/products':
+      return <AdminProductsPage />;
+    case '#/admin/orders':
+      return <AdminOrdersPage />;
+    case '#/admin/login':
+      return <AdminLoginPage />;
     case '#/':
     case '':
       return <HomePage />;

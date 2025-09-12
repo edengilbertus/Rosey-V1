@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useCart } from '../contexts/CartContext';
+import { supabase } from '../supabaseClient';
 
 export const CheckoutPage = () => {
   const { cart, cartItemCount, removeFromCart } = useCart();
@@ -46,9 +47,13 @@ export const CheckoutPage = () => {
     };
 
     try {
-      // For now, just simulate saving the order
-      console.log('Order submitted:', order);
-      
+      // Save order to Supabase
+      const { data, error } = await supabase
+        .from('orders')
+        .insert([order]);
+
+      if (error) throw error;
+
       // Clear cart after successful order
       cart.forEach(item => removeFromCart(item.product.id));
       
