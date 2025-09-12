@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { CollectionPage } from './pages/CollectionPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { ContactPage } from './pages/ContactPage';
+import { CartPage } from './pages/CartPage';
 import { CartProvider, useCart } from './contexts/CartContext';
 import { CartIcon } from './components/icons/CartIcon';
 
@@ -79,6 +80,8 @@ const Router = () => {
       return <CollectionPage />;
     case '#/contact':
       return <ContactPage />;
+    case '#/cart':
+      return <CartPage />;
     case '#/':
     case '':
       return <HomePage />;
