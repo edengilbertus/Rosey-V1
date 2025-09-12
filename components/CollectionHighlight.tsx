@@ -51,9 +51,9 @@ export const CollectionHighlight = forwardRef<HTMLElement, {}>((props, forwarded
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-center items-center gap-16">
         <div className="flex flex-wrap justify-center gap-8">
-          <HighlightCard imageUrl="https://images.unsplash.com/photo-1611591437281-462bf4a281a2?q=80&w=400" alt="Gold necklace" />
-          <HighlightCard imageUrl="https://images.unsplash.com/photo-1593452449079-479b1834220b?q=80&w=400" alt="Assortment of rings" />
-          <HighlightCard imageUrl="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=400" alt="Pendant necklace" />
+          <HighlightCard imageUrl="/oscar-ramirez-tKAzFMJnYWo-unsplash.jpg" alt="Gold necklace" />
+          <HighlightCard imageUrl="/bansah-photography-rpk2T_zbRGY-unsplash.jpg" alt="Assortment of rings" />
+          <HighlightCard imageUrl="/oscar-ramirez-JJ-VWN8qxJ0-unsplash.jpg" alt="Pendant necklace" />
         </div>
         <div className="text-center md:text-left max-w-sm">
           <h2 className="font-serif text-6xl text-brand-charcoal tracking-[0.2em] mb-4">YOU ORDER WE CUSTOMIZE</h2>
