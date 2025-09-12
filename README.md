@@ -28,14 +28,10 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## Admin Panel
 
-The admin panel is now a separate application located in the `admin-panel` directory.
+The admin panel is now a completely separate application in its own repository.
 
-To run the admin panel:
-1. Navigate to the admin-panel directory: `cd admin-panel`
-2. Install dependencies: `npm install`
-3. Create a `.env.local` file with your Supabase credentials
-4. Run the development server: `npm run dev`
-5. Access the admin panel at http://localhost:3001
+To access the admin panel, please refer to the separate repository at:
+`/Users/edengilbert/Desktop/Projects/rosey-gems-admin`
 
 ## Available Scripts
 
