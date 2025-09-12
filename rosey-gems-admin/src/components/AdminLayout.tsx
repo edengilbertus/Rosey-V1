@@ -1,5 +1,6 @@
 import React from 'react';
-import { useAuth } from '../../hooks/useAuth';
+import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -7,19 +8,17 @@ interface AdminLayoutProps {
 
 export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   const { logout } = useAuth();
+  const location = useLocation();
 
   const navigation = [
-    { name: 'Dashboard', path: '/#/admin' },
-    { name: 'Products', path: '/#/admin/products' },
-    { name: 'Orders', path: '/#/admin/orders' },
+    { name: 'Dashboard', path: '/' },
+    { name: 'Products', path: '/products' },
+    { name: 'Orders', path: '/orders' },
   ];
 
   const handleLogout = () => {
     logout();
   };
-
-  // Get current hash location
-  const currentHash = window.location.hash;
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
@@ -33,18 +32,17 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           <div className="mt-5 flex-grow flex flex-col">
             <nav className="flex-1 px-2 pb-4 space-y-1">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.path}
+                  to={item.path}
                   className={`${
-                    currentHash === item.path || 
-                    (item.path === '/#/admin' && currentHash === '/#/admin')
+                    location.pathname === item.path
                       ? 'bg-gray-100 text-gray-900'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   } group flex items-center px-2 py-2 text-sm font-medium rounded-md`}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

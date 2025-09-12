@@ -5,9 +5,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ROSEY Jewelry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-cream': '#FFFBF0',
+              'brand-peach': '#F8E9D3',
+              'brand-tan': '#D1A981',
+              'brand-charcoal': '#4F4A45',
+              'brand-yellow': '#F3D063',
+              'brand-gray': '#D9D9D9',
+            },
+            fontFamily: {
+              'sans': ['Lato', 'sans-serif'],
+              'serif': ['Cormorant Garamond', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
   <script type="importmap">
 {
   "imports": {

@@ -8,7 +8,6 @@ A modern e-commerce website for ROSEY GEMS jewelry store built with React, TypeS
 - Product catalog with search functionality
 - Shopping cart with add/remove items
 - Checkout process with customer information
-- Admin panel for managing products and orders
 - WhatsApp integration for customer communication
 - Google Maps integration for location
 
@@ -28,17 +27,7 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## Admin Panel
 
-The admin panel is now integrated into the main application. To access it:
-
-1. Navigate to `/#/admin/login`
-2. Use the demo credentials:
-   - Email: admin@roseygems.com
-   - Password: admin123
-
-From the admin panel, you can:
-- Manage products (add, edit, delete)
-- View and manage orders
-- Mark orders as complete
+The admin panel has been removed from this website and is now available as a separate mobile application built with Expo. Please refer to the separate repository for the admin panel mobile app.
 
 ## Available Scripts
 

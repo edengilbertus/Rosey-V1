@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../hooks/useAuth';
 
-export const LoginPage: React.FC = () => {
+export const AdminLoginPage: React.FC = () => {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const { login } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -17,20 +16,19 @@ export const LoginPage: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     setError('');
     
-    try {
-      const success = await login(credentials.email, credentials.password);
-      if (success) {
-        window.location.hash = '/admin';
-      } else {
-        setError('Invalid email or password');
-      }
-    } catch (err) {
-      setError('An error occurred during login');
+    // Simple authentication - in a real app, this would make an API call
+    if (credentials.email === 'admin@roseygems.com' && credentials.password === 'admin123') {
+      // Redirect to admin dashboard
+      window.location.hash = '#/admin';
+    } else {
+      setError('Invalid email or password');
     }
+    setIsLoading(false);
   };
 
   return (
@@ -116,9 +114,12 @@ export const LoginPage: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-charcoal hover:bg-brand-tan focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-charcoal"
+                disabled={isLoading}
+                className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-charcoal hover:bg-brand-tan focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-charcoal ${
+                  isLoading ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
-                Sign in
+                {isLoading ? 'Signing in...' : 'Sign in'}
               </button>
             </div>
             

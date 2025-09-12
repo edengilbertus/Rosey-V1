@@ -8,13 +8,6 @@ import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { CartProvider, useCart } from './contexts/CartContext';
 import { CartIcon } from './components/icons/CartIcon';
-// Admin components
-import { AuthProvider } from './hooks/useAuth';
-import { AdminLayout } from './components/Admin/AdminLayout';
-import { LoginPage } from './pages/Admin/LoginPage';
-import { AdminDashboard } from './pages/Admin/AdminDashboard';
-import { ProductsPage } from './pages/Admin/ProductsPage';
-import { OrdersPage } from './pages/Admin/OrdersPage';
 
 const NotFoundPage = () => (
   <div className="text-center py-40">
@@ -75,38 +68,6 @@ const Router = () => {
     };
   }, []);
 
-  // Admin routes
-  if (route.startsWith('#/admin')) {
-    const adminRoute = route.replace('#/admin', '');
-    
-    switch (adminRoute) {
-      case '':
-      case '/':
-        return (
-          <AdminLayout>
-            <AdminDashboard />
-          </AdminLayout>
-        );
-      case '/products':
-        return (
-          <AdminLayout>
-            <ProductsPage />
-          </AdminLayout>
-        );
-      case '/orders':
-        return (
-          <AdminLayout>
-            <OrdersPage />
-          </AdminLayout>
-        );
-      case '/login':
-        return <LoginPage />;
-      default:
-        return <NotFoundPage />;
-    }
-  }
-
-  // Public routes
   if (route.startsWith('#/products/')) {
     const id = parseInt(route.replace('#/products/', ''), 10);
     if (!isNaN(id)) {
@@ -133,35 +94,16 @@ const Router = () => {
 }
 
 function App() {
-  const [currentRoute, setCurrentRoute] = useState(window.location.hash);
-  
-  useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentRoute(window.location.hash);
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-  }, []);
-
-  // Check if current route is an admin route
-  const isAdminRoute = currentRoute.startsWith('#/admin');
-  
   return (
-    <AuthProvider>
-      <CartProvider>
-        <div className="bg-brand-cream min-h-screen">
-          {/* Only show header on non-admin pages */}
-          {!isAdminRoute && <Header />}
-          <main>
-            <Router />
-          </main>
-          {/* Only show floating cart on non-admin pages */}
-          {!isAdminRoute && <FloatingCartIcon />}
-        </div>
-      </CartProvider>
-    </AuthProvider>
+    <CartProvider>
+      <div className="bg-brand-cream min-h-screen">
+        <Header />
+        <main>
+          <Router />
+        </main>
+        <FloatingCartIcon />
+      </div>
+    </CartProvider>
   );
 }
 
