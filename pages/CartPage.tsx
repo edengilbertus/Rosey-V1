@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../contexts/CartContext';
 import { CartIcon } from '../components/icons/CartIcon';
 
 export const CartPage = () => {
-  const { cart, cartItemCount } = useCart();
+  const { cart, cartItemCount, removeFromCart, updateQuantity } = useCart();
+  const [removingItemId, setRemovingItemId] = useState<number | null>(null);
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+  };
+
+  const handleRemoveItem = (productId: number) => {
+    setRemovingItemId(productId);
+    setTimeout(() => {
+      removeFromCart(productId);
+      setRemovingItemId(null);
+    }, 300);
+  };
+
+  const handleQuantityChange = (productId: number, change: number) => {
+    const item = cart.find(item => item.product.id === productId);
+    if (item) {
+      const newQuantity = item.quantity + change;
+      updateQuantity(productId, newQuantity);
+    }
   };
 
   if (cartItemCount === 0) {
@@ -39,7 +56,12 @@ export const CartPage = () => {
           <div className="flex-1">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               {cart.map((item) => (
-                <div key={item.product.id} className="flex flex-col sm:flex-row items-center p-6 border-b border-gray-200 last:border-b-0">
+                <div 
+                  key={item.product.id} 
+                  className={`flex flex-col sm:flex-row items-center p-6 border-b border-gray-200 last:border-b-0 transition-all duration-300 ${
+                    removingItemId === item.product.id ? 'opacity-0 max-h-0 overflow-hidden' : 'opacity-100 max-h-96'
+                  }`}
+                >
                   <div className="w-32 h-32 mb-4 sm:mb-0 sm:mr-6">
                     <img 
                       src={item.product.imageUrls[0]} 
@@ -56,13 +78,38 @@ export const CartPage = () => {
                           UGX {(item.product.price * item.quantity).toLocaleString()}
                         </span>
                         <span className="mx-4 text-gray-400">|</span>
-                        <span className="font-sans text-gray-600">
-                          Qty: {item.quantity}
-                        </span>
+                        <div className="flex items-center">
+                          <button 
+                            onClick={() => handleQuantityChange(item.product.id, -1)}
+                            className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-l hover:bg-gray-300 transition-colors"
+                            aria-label="Decrease quantity"
+                          >
+                            -
+                          </button>
+                          <span className="w-12 h-8 flex items-center justify-center bg-gray-100">
+                            {item.quantity}
+                          </span>
+                          <button 
+                            onClick={() => handleQuantityChange(item.product.id, 1)}
+                            className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-r hover:bg-gray-300 transition-colors"
+                            aria-label="Increase quantity"
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
-                      <span className="font-sans text-lg text-brand-charcoal">
-                        UGX {item.product.price.toLocaleString()} each
-                      </span>
+                      <div className="flex items-center space-x-4">
+                        <span className="font-sans text-lg text-brand-charcoal">
+                          UGX {item.product.price.toLocaleString()} each
+                        </span>
+                        <button 
+                          onClick={() => handleRemoveItem(item.product.id)}
+                          className="text-red-500 hover:text-red-700 transition-colors font-sans"
+                          aria-label={`Remove ${item.product.name} from cart`}
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
