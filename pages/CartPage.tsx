@@ -144,7 +144,9 @@ export const CartPage = () => {
               </div>
               
               <button className="w-full bg-brand-charcoal text-white py-3 rounded-lg font-sans text-lg hover:bg-gray-800 transition-colors">
-                Proceed to Checkout
+                <a href="#/checkout" className="block w-full h-full flex items-center justify-center">
+                  Proceed to Checkout
+                </a>
               </button>
               
               <a 
