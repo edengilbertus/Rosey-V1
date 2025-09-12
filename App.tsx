@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { CollectionPage } from './pages/CollectionPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
+import { ContactPage } from './pages/ContactPage';
 import { CartProvider } from './contexts/CartContext';
 
 const NotFoundPage = () => (
@@ -38,6 +39,8 @@ const Router = () => {
   switch (route) {
     case '#/collection':
       return <CollectionPage />;
+    case '#/contact':
+      return <ContactPage />;
     case '#/':
     case '':
       return <HomePage />;
