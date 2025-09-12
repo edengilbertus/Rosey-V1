@@ -72,6 +72,16 @@ const Router = () => {
     };
   }, []);
 
+  // Check if user is trying to access admin routes
+  const isAdminRoute = route.startsWith('#/admin');
+  const isLoggedIn = true; // In a real app, this would check actual authentication state
+
+  // Redirect to login if trying to access admin pages without being logged in
+  if (isAdminRoute && route !== '#/admin/login' && !isLoggedIn) {
+    window.location.hash = '#/admin/login';
+    return null;
+  }
+
   if (route.startsWith('#/products/')) {
     const id = parseInt(route.replace('#/products/', ''), 10);
     if (!isNaN(id)) {

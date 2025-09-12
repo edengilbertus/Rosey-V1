@@ -6,6 +6,7 @@ export const AdminLoginPage: React.FC = () => {
     password: ''
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -18,24 +19,27 @@ export const AdminLoginPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
     
-    // Simulate login process
-    setTimeout(() => {
-      // In a real app, this would make an API call to authenticate
-      alert('Login functionality would be implemented with Supabase authentication');
-      setIsLoading(false);
-    }, 1000);
+    // Simple authentication - in a real app, this would make an API call
+    if (credentials.email === 'admin@roseygems.com' && credentials.password === 'admin123') {
+      // Redirect to admin dashboard
+      window.location.hash = '#/admin';
+    } else {
+      setError('Invalid email or password');
+    }
+    setIsLoading(false);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-brand-cream flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <div className="w-12 h-12 rounded-full bg-brand-gray"></div>
           <div className="w-12 h-12 rounded-full bg-brand-yellow ml-2"></div>
           <div className="w-12 h-12 rounded-full bg-brand-tan ml-2"></div>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-charcoal">
           Sign in to ROSEY GEMS Admin
         </h2>
       </div>
@@ -43,6 +47,14 @@ export const AdminLoginPage: React.FC = () => {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
+            {error && (
+              <div className="rounded-md bg-red-50 p-4">
+                <div className="text-sm text-red-700">
+                  {error}
+                </div>
+              </div>
+            )}
+            
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email address
@@ -93,7 +105,7 @@ export const AdminLoginPage: React.FC = () => {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-brand-charcoal hover:text-gray-800">
+                <a href="#" className="font-medium text-brand-charcoal hover:text-brand-tan">
                   Forgot your password?
                 </a>
               </div>
@@ -103,12 +115,18 @@ export const AdminLoginPage: React.FC = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-charcoal hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-charcoal ${
+                className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-charcoal hover:bg-brand-tan focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-charcoal ${
                   isLoading ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
                 {isLoading ? 'Signing in...' : 'Sign in'}
               </button>
+            </div>
+            
+            <div className="text-sm text-gray-500 mt-4">
+              <p>Demo credentials:</p>
+              <p>Email: admin@roseygems.com</p>
+              <p>Password: admin123</p>
             </div>
           </form>
         </div>
