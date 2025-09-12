@@ -69,8 +69,8 @@ export const Hero = forwardRef<HTMLElement>((props, forwardedRef) => {
           </div>
           <div className="absolute bottom-0 right-10 w-[300px] h-[300px] p-2 bg-brand-yellow rounded-b-[150px] rounded-t-3xl">
             <img 
-              src="https://images.unsplash.com/photo-1627293589115-6430513c5166?q=80&w=400" 
-              alt="Silver necklace on a woman's neck" 
+              src="/christian-agbede-kZQNC-BGQEQ-unsplash.jpg" 
+              alt="Jewelry collection" 
               className="w-full h-full object-cover rounded-b-[150px] rounded-t-3xl"
             />
           </div>
