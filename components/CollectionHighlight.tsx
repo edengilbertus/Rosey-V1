@@ -58,7 +58,7 @@ export const CollectionHighlight = forwardRef<HTMLElement, {}>((props, forwarded
         <div className="text-center md:text-left max-w-sm">
           <h2 className="font-serif text-6xl text-brand-charcoal tracking-[0.2em] mb-4">YOU ORDER WE CUSTOMIZE</h2>
           <p className="font-serif text-3xl text-brand-charcoal leading-relaxed">
-            Sparkle up your style with a piece of jewelery from the glam collection
+            Sparkle up your style with a piece of jewelery from rosey gems
           </p>
         </div>
       </div>

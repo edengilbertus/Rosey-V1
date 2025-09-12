@@ -70,7 +70,7 @@ export const ContactSection = forwardRef<HTMLElement, {}>((props, forwardedRef) 
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
             <h3 className="font-serif text-3xl text-brand-charcoal">Get in Touch</h3>
             <p className="font-serif text-xl text-brand-charcoal">
-              Have questions or want to know more about our jewelry collection? Reach out to us!
+              Have questions or want to know more about our rosey gems collection? Reach out to us!
             </p>
             
             {/* WhatsApp Message Form */}

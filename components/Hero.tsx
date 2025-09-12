@@ -45,18 +45,18 @@ export const Hero = forwardRef<HTMLElement>((props, forwardedRef) => {
     >
       <PalmLeaf className="absolute -top-40 right-0 h-full w-auto z-0 text-brand-tan" />
       <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-        <div className="flex flex-col gap-6 max-w-lg">
-          <h1 className="font-serif text-6xl text-brand-charcoal leading-tight">
-            Sparkle up your style with a piece of jewelery from the glam collection
+        <div className="text-center max-w-2xl">
+          <h1 className="font-serif text-5xl md:text-7xl text-brand-charcoal mb-6 leading-tight">
+            Exquisite Jewelry for the Modern Woman
           </h1>
-          <p className="font-sans text-lg text-gray-500">
-            This season's most loved, customer favorite designs - curated just for you!
+          <p className="font-serif text-xl md:text-2xl text-gray-600 mb-8">
+            Sparkle up your style with a piece of jewelery from rosey gems
           </p>
           <a 
-            href="#/collection"
-            className="bg-brand-tan text-white px-8 py-3 rounded-lg self-start mt-4 hover:opacity-90 transition-opacity font-sans text-lg"
+            href="#/collection" 
+            className="bg-brand-tan text-white px-8 py-4 rounded-lg hover:opacity-90 transition-opacity font-sans text-xl inline-block"
           >
-            Buy now
+            Shop Now
           </a>
         </div>
         <div className="relative h-[500px] hidden md:block">
