@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
           <div className="w-4 h-4 rounded-full bg-brand-tan"></div>
         </a>
         <div className="flex-1 flex justify-center items-center gap-16">
-          <a href="#/" className="text-4xl font-serif tracking-[0.3em] font-medium">ROSEY</a>
+          <a href="#/" className="text-4xl font-serif tracking-[0.3em] font-medium">ROSEY GEMS</a>
           <nav className="hidden md:flex items-center gap-10 text-lg font-sans">
             {navLinks.map((link) => (
               <a 
