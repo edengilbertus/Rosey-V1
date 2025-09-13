@@ -106,6 +106,13 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     imageUrls: ['/teardrop-necklace-1.jpg', '/teardrop-necklace-2.jpg', '/teardrop-necklace-3.jpg'],
     description: 'Elevate your look with this exquisite jewelry set, perfect for any special occasion. The brilliant, teardrop-shaped blue crystal takes center stage, suspended from a graceful, rhinestone-encrusted necklace. This stunning piece is complemented by matching earrings and a sparkling ring, all designed to catch the light and add a touch of timeless elegance to your ensemble.'
   },
+  { 
+    id: 16, 
+    name: 'Twisted Open-Style Ring', 
+    price: 15000.00, 
+    imageUrls: ['/twisted-ring-1.jpg', '/twisted-ring-2.jpg', '/twisted-ring-3.jpg'],
+    description: 'Introducing the ultimate statement ring for the modern minimalist. This open-style ring boasts a fluid, twisted silhouette in a radiant gold tone. Designed to be lightweight and comfortable, it\'s the perfect fusion of contemporary design and effortless elegance. Wear it alone for a sleek look or stack it with other rings to express your unique style.'
+  },
 ];
 
 export const BEST_SELLER_PRODUCTS: Product[] = CATALOGUE_PRODUCTS.slice(0, 6);
