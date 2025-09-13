@@ -94,7 +94,7 @@ export const CATALOGUE_PRODUCTS: Product[] = [
   },
   { 
     id: 14, 
-    name: 'Scrunchies 3000', 
+    name: 'Scrunchies', 
     price: 3000.00, 
     imageUrls: ['/scrunchies-1.jpg', '/scrunchies-2.jpg'],
     description: 'Elevate your hair game with this elegant set of satin scrunchies. The soft, smooth fabric helps reduce hair breakage and creasing, keeping your hair healthy and stylish all day long. Perfect for a sleek ponytail, a messy bun, or a simple wrist accessory, this versatile collection adds a touch of sophistication to any look.\nKey Features:\n * Gentle on Hair: The smooth satin material glides over hair, preventing tugging, pulling, and damage.\n * Vibrant Colors: A beautiful assortment of colors to match every outfit and occasion.\n * Versatile Style: Strong enough for a secure hold, yet gentle enough for all hair types.\n * Multi-pack: Get a variety of options in one convenient set.'
