@@ -64,6 +64,13 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     imageUrls: ['/rope-chain-necklace.jpg'],
     description: 'Add a timeless classic to your collection with this stunning rope chain necklace. This iconic style features intricately twisted links that catch the light from every angle, creating a brilliant, dynamic shine. Perfect for both casual and formal wear, this versatile chain can be worn on its own for a bold statement or layered with other necklaces to create a personalized look. Crafted from high-quality sterling silver, it\'s designed for durability and a lasting shine. The secure lobster claw clasp ensures a comfortable and worry-free fit.'
   },
+  { 
+    id: 10, 
+    name: 'Infinity Bolo Bracelet', 
+    price: 15000.00, 
+    imageUrls: ['/infinity-bolo-bracelet-1.jpg', '/infinity-bolo-bracelet-2.jpg', '/infinity-bolo-bracelet-3.jpg'],
+    description: 'This elegant and timeless bracelet features a beautifully crafted infinity symbol as its centerpiece. The symbol is adorned with a sparkling row of pavé-set crystals, adding a touch of brilliance and glamour. The main infinity charm is flanked on either side by three smaller, bezel-set crystals, enhancing the overall delicate and symmetrical design. The bracelet is a versatile slider (or bolo) bracelet style, allowing for an easily adjustable and comfortable fit. It features a sleek box chain that slides through a small, polished sphere bead, ending with two decorative ball charms. This adjustable design makes it suitable for a wide range of wrist sizes. Crafted from a durable, silver-toned metal, this piece is a perfect accessory for both everyday wear and special occasions. The combination of the meaningful infinity symbol and the shimmering crystals makes it a wonderful gift to symbolize eternal love, friendship, or endless possibilities.'
+  },
 ];
 
 export const BEST_SELLER_PRODUCTS: Product[] = CATALOGUE_PRODUCTS.slice(0, 6);
