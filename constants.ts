@@ -1,4 +1,3 @@
-
 import { Product } from './types';
 
 export const CATALOGUE_PRODUCTS: Product[] = [
@@ -57,6 +56,13 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     price: 250.00, 
     imageUrls: ['https://images.unsplash.com/photo-1627293589115-6430513c5166?q=80&w=600', 'https://images.unsplash.com/photo-1605001103569-731380757b15?q=80&w=600'],
     description: 'A beautifully delicate chain bracelet made from 14k gold. It\'s light, comfortable, and perfect for layering with other pieces or wearing on its own for a minimalist statement.'
+  },
+  { 
+    id: 9, 
+    name: 'Rope Chain Necklace', 
+    price: 20000.00, 
+    imageUrls: ['/rope-chain-necklace.jpg'],
+    description: 'Add a timeless classic to your collection with this stunning rope chain necklace. This iconic style features intricately twisted links that catch the light from every angle, creating a brilliant, dynamic shine. Perfect for both casual and formal wear, this versatile chain can be worn on its own for a bold statement or layered with other necklaces to create a personalized look. Crafted from high-quality sterling silver, it\'s designed for durability and a lasting shine. The secure lobster claw clasp ensures a comfortable and worry-free fit.'
   },
 ];
 
