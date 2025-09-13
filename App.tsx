@@ -64,6 +64,11 @@ const Router = () => {
     // Check if user is admin
     const adminStatus = localStorage.getItem('isAdmin') === 'true';
     setIsAdmin(adminStatus);
+    
+    // If user is already logged in as admin and trying to access login page, redirect to dashboard
+    if (adminStatus && window.location.hash === '#/admin/login') {
+      window.location.hash = '#/admin/dashboard';
+    }
   }, []);
 
   useEffect(() => {

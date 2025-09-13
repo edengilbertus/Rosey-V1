@@ -23,6 +23,8 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
         // Store admin status in localStorage
         localStorage.setItem('isAdmin', 'true');
         onLogin();
+        // Redirect to admin dashboard
+        window.location.hash = '#/admin/dashboard';
       } else {
         setError('Invalid credentials');
       }
