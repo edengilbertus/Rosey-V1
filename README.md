@@ -27,7 +27,18 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## Admin Panel
 
-The admin panel has been removed from this website and is now available as a separate mobile application built with Expo. Please refer to the separate repository for the admin panel mobile app.
+The admin panel is now available as part of the website. To access the admin panel:
+
+1. Navigate to `/#/admin/login`
+2. Use the default credentials:
+   - Email: admin@roseygems.com
+   - Password: admin123
+
+The admin panel allows you to:
+- View and manage customer orders
+- Add new products to the catalog
+- Edit existing products
+- Delete products from the catalog
 
 ## Available Scripts
 
