@@ -67,7 +67,7 @@ ${itemsList}
 Please confirm this order.`;
       
       const encodedMessage = encodeURIComponent(message);
-      const phoneNumber = '256726408312'; // Owner's WhatsApp number
+      const phoneNumber = '256778701307'; // Owner's WhatsApp number
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
       
       // Redirect to WhatsApp with pre-filled message
