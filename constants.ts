@@ -78,6 +78,20 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     imageUrls: ['/tote-bag-1.jpg', '/tote-bag-2.jpg', '/tote-bag-3.jpg'],
     description: 'This stylish and functional tote bag combines elegance with practicality. Featuring premium materials and thoughtful design, it\'s perfect for carrying your daily essentials while making a fashion statement. The spacious interior provides ample room for all your belongings, while the sturdy construction ensures durability. Ideal for work, shopping, or weekend getaways, this versatile bag complements any outfit with its timeless design.'
   },
+  { 
+    id: 12, 
+    name: 'Personalized Gold ID Bracelet', 
+    price: 15000.00, 
+    imageUrls: ['/id-bracelet-1.jpg', '/id-bracelet-2.jpg', '/id-bracelet-3.jpg'],
+    description: 'This is a gold-colored, personalized ID bracelet designed for custom engraving. The bracelet features a sturdy chain-link design with a central, flat bar where you can add text, such as a name, date, or a personal message. It fastens with a classic lobster clasp. The image shows two versions of the bracelet, highlighting its versatile style. This type of jewelry is a popular choice for personal gifts, medical alert information, or simply as a sentimental accessory.'
+  },
+  { 
+    id: 13, 
+    name: 'Personalized Gold ID Bracelet (Pair)', 
+    price: 30000.00, 
+    imageUrls: ['/id-bracelet-1.jpg', '/id-bracelet-2.jpg', '/id-bracelet-3.jpg'],
+    description: 'This is a gold-colored, personalized ID bracelet designed for custom engraving. The bracelet features a sturdy chain-link design with a central, flat bar where you can add text, such as a name, date, or a personal message. It fastens with a classic lobster clasp. The image shows two versions of the bracelet, highlighting its versatile style. This type of jewelry is a popular choice for personal gifts, medical alert information, or simply as a sentimental accessory. This listing is for a pair of bracelets.'
+  },
 ];
 
 export const BEST_SELLER_PRODUCTS: Product[] = CATALOGUE_PRODUCTS.slice(0, 6);
