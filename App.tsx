@@ -8,8 +8,6 @@ import { CartPage } from './pages/CartPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { CartProvider, useCart } from './contexts/CartContext';
 import { CartIcon } from './components/icons/CartIcon';
-import { AdminLogin } from './components/admin/AdminLogin';
-import { AdminDashboard } from './components/admin/AdminDashboard';
 
 const NotFoundPage = () => (
   <div className="text-center py-40">
@@ -58,18 +56,6 @@ const FloatingCartIcon: React.FC = () => {
 
 const Router = () => {
   const [route, setRoute] = useState(window.location.hash);
-  const [isAdmin, setIsAdmin] = useState(false);
-
-  useEffect(() => {
-    // Check if user is admin
-    const adminStatus = localStorage.getItem('isAdmin') === 'true';
-    setIsAdmin(adminStatus);
-    
-    // If user is already logged in as admin and trying to access login page, redirect to dashboard
-    if (adminStatus && window.location.hash === '#/admin/login') {
-      window.location.hash = '#/admin/dashboard';
-    }
-  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -81,28 +67,6 @@ const Router = () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-
-  // Handle admin routes
-  if (route.startsWith('#/admin')) {
-    if (!isAdmin && route !== '#/admin/login') {
-      window.location.hash = '#/admin/login';
-      return null;
-    }
-    
-    switch (route) {
-      case '#/admin/login':
-        return <AdminLogin onLogin={() => setIsAdmin(true)} />;
-      case '#/admin':
-      case '#/admin/dashboard':
-        return <AdminDashboard onLogout={() => {
-          localStorage.removeItem('isAdmin');
-          setIsAdmin(false);
-          window.location.hash = '#/admin/login';
-        }} />;
-      default:
-        return <NotFoundPage />;
-    }
-  }
 
   if (route.startsWith('#/products/')) {
     const id = parseInt(route.replace('#/products/', ''), 10);

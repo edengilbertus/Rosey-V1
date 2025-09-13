@@ -25,7 +25,7 @@ export const CheckoutPage = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -47,24 +47,39 @@ export const CheckoutPage = () => {
     };
 
     try {
-      // Save order to Supabase
-      if (!supabase) {
-        throw new Error('Supabase is not configured');
-      }
+      // Format order items for the message
+      const itemsList = order.items.map((item: any) => 
+        `${item.product_name} (x${item.quantity}) - UGX ${(item.price * item.quantity).toLocaleString()}`
+      ).join('\n');
       
-      const { data, error } = await supabase
-        .from('orders')
-        .insert([order]);
+      const message = `*New Order Request*
 
-      if (error) throw error;
+Customer: ${order.customer_name}
+Email: ${order.customer_email}
+Phone: ${order.customer_phone}
+Location: ${order.customer_location}
 
-      // Clear cart after successful order
+*Order Items:*
+${itemsList}
+
+*Total Amount:* UGX ${order.total_amount.toLocaleString()}
+
+Please confirm this order.`;
+      
+      const encodedMessage = encodeURIComponent(message);
+      const phoneNumber = '256726408312'; // Owner's WhatsApp number
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      
+      // Redirect to WhatsApp with pre-filled message
+      window.location.href = whatsappUrl;
+      
+      // Clear cart after redirecting to WhatsApp
       cart.forEach(item => removeFromCart(item.product.id));
       
       setIsSubmitted(true);
     } catch (error) {
-      console.error('Error submitting order:', error);
-      alert('There was an error submitting your order. Please try again.');
+      console.error('Error preparing order:', error);
+      alert('There was an error preparing your order. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -192,7 +207,7 @@ export const CheckoutPage = () => {
                   isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
               >
-                {isSubmitting ? 'Processing Order...' : 'Place Order'}
+                {isSubmitting ? 'Redirecting to WhatsApp...' : 'Place Order'}
               </button>
             </form>
           </div>
