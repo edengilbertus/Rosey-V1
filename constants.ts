@@ -92,6 +92,20 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     imageUrls: ['/id-bracelet-1.jpg', '/id-bracelet-2.jpg', '/id-bracelet-3.jpg'],
     description: 'This is a gold-colored, personalized ID bracelet designed for custom engraving. The bracelet features a sturdy chain-link design with a central, flat bar where you can add text, such as a name, date, or a personal message. It fastens with a classic lobster clasp. The image shows two versions of the bracelet, highlighting its versatile style. This type of jewelry is a popular choice for personal gifts, medical alert information, or simply as a sentimental accessory. This listing is for a pair of bracelets.'
   },
+  { 
+    id: 14, 
+    name: 'Scrunchies 3000', 
+    price: 3000.00, 
+    imageUrls: ['/scrunchies-1.jpg', '/scrunchies-2.jpg'],
+    description: 'Elevate your hair game with this elegant set of satin scrunchies. The soft, smooth fabric helps reduce hair breakage and creasing, keeping your hair healthy and stylish all day long. Perfect for a sleek ponytail, a messy bun, or a simple wrist accessory, this versatile collection adds a touch of sophistication to any look.\nKey Features:\n * Gentle on Hair: The smooth satin material glides over hair, preventing tugging, pulling, and damage.\n * Vibrant Colors: A beautiful assortment of colors to match every outfit and occasion.\n * Versatile Style: Strong enough for a secure hold, yet gentle enough for all hair types.\n * Multi-pack: Get a variety of options in one convenient set.'
+  },
+  { 
+    id: 15, 
+    name: 'TearDrop shaped blue gem necklace', 
+    price: 15000.00, 
+    imageUrls: ['/teardrop-necklace-1.jpg', '/teardrop-necklace-2.jpg', '/teardrop-necklace-3.jpg'],
+    description: 'Elevate your look with this exquisite jewelry set, perfect for any special occasion. The brilliant, teardrop-shaped blue crystal takes center stage, suspended from a graceful, rhinestone-encrusted necklace. This stunning piece is complemented by matching earrings and a sparkling ring, all designed to catch the light and add a touch of timeless elegance to your ensemble.'
+  },
 ];
 
 export const BEST_SELLER_PRODUCTS: Product[] = CATALOGUE_PRODUCTS.slice(0, 6);
