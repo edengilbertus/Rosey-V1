@@ -120,6 +120,13 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     imageUrls: ['/tear-drop-earrings-1.jpg', '/tear-drop-earrings-2.jpg'],
     description: 'Elevate your style with these elegant tear drop earrings that combine classic sophistication with modern design. The gracefully curved silhouette catches the light beautifully, creating a mesmerizing play of reflections. Crafted with attention to detail, these earrings feature a lustrous finish that complements any complexion. The lightweight construction ensures comfortable wear for all-day elegance, making them perfect for both special occasions and everyday sophistication. These versatile earrings will become your go-to accessory for adding a touch of refined glamour to any outfit.'
   },
+  { 
+    id: 18, 
+    name: 'Nylon Tote Bag', 
+    price: 40000.00, 
+    imageUrls: ['/nylon-tote-bag-1.jpg', '/nylon-tote-bag-2.jpg', '/nylon-tote-bag-3.jpg', '/nylon-tote-bag-4.jpg', '/nylon-tote-bag-5.jpg', '/nylon-tote-bag-6.jpg', '/nylon-tote-bag-7.jpg'],
+    description: 'Introducing our premium Nylon Tote Bag, the perfect blend of style and functionality. This spacious bag is crafted from high-quality nylon material, offering durability and water resistance for everyday use. The sleek design features multiple compartments for organized storage, including a padded section for electronics. With comfortable shoulder straps and a sturdy base, this tote is ideal for work, travel, or leisure. The minimalist aesthetic complements any outfit, while the practical design ensures you can carry all your essentials with ease. Whether you\'re heading to the office, gym, or weekend getaway, this versatile tote bag is your perfect companion.'
+  },
 ];
 
 export const BEST_SELLER_PRODUCTS: Product[] = CATALOGUE_PRODUCTS.slice(0, 6);
