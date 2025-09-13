@@ -113,6 +113,13 @@ export const CATALOGUE_PRODUCTS: Product[] = [
     imageUrls: ['/twisted-ring-1.jpg', '/twisted-ring-2.jpg', '/twisted-ring-3.jpg'],
     description: 'Introducing the ultimate statement ring for the modern minimalist. This open-style ring boasts a fluid, twisted silhouette in a radiant gold tone. Designed to be lightweight and comfortable, it\'s the perfect fusion of contemporary design and effortless elegance. Wear it alone for a sleek look or stack it with other rings to express your unique style.'
   },
+  { 
+    id: 17, 
+    name: 'Tear Drop Earrings', 
+    price: 8000.00, 
+    imageUrls: ['/tear-drop-earrings-1.jpg', '/tear-drop-earrings-2.jpg'],
+    description: 'Elevate your style with these elegant tear drop earrings that combine classic sophistication with modern design. The gracefully curved silhouette catches the light beautifully, creating a mesmerizing play of reflections. Crafted with attention to detail, these earrings feature a lustrous finish that complements any complexion. The lightweight construction ensures comfortable wear for all-day elegance, making them perfect for both special occasions and everyday sophistication. These versatile earrings will become your go-to accessory for adding a touch of refined glamour to any outfit.'
+  },
 ];
 
 export const BEST_SELLER_PRODUCTS: Product[] = CATALOGUE_PRODUCTS.slice(0, 6);
